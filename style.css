@@ -1,0 +1,127 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #f5c5ff, #ffe5ed);
+    color: #71334e;
+    overflow-x: hidden;
+}
+
+.card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 430px;
+    padding: 28px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid white;
+    border-radius: 25px;
+    box-shadow: 0 15px 45px rgba(180, 70, 130, 0.2);
+}
+
+.photo {
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #e58bb5;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #ffe3ef, #f5dcff);
+    color: #c0447a;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.subtitle {
+    margin-top: 24px;
+    font-size: 13px;
+    color: #ad6286;
+}
+
+h1 {
+    margin: 15px 0;
+    color: #d83e83;
+    font-size: 36px;
+}
+
+.message {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+button {
+    margin-top: 12px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #ff639b, #d45be8);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(210, 70, 150, 0.25);
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#surprise {
+    margin-top: 22px;
+    color: #d83e83;
+    font-weight: bold;
+    line-height: 1.7;
+}
+
+#surprise[hidden] {
+    display: none;
+}
+
+.footer {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #ad6286;
+}
+
+.heart {
+    position: fixed;
+    bottom: -40px;
+    z-index: 0;
+    pointer-events: none;
+    animation: floatUp 5s linear forwards;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 22px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .photo {
+        height: 160px;
+    }
+}
