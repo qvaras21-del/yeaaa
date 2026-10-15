@@ -1,0 +1,118 @@
+:root {
+  --ink: #050712;
+  --night: #0a0f2c;
+  --blue: #60a5fa;
+  --rose: #f9a8d4;
+  --text: #e8eeff;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Manrope", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+/* Фон: глубокая ночь с мягкими световыми пятнами */
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(60vmax 60vmax at 50% 45%, rgba(37, 99, 235, .22), transparent 60%),
+    radial-gradient(40vmax 40vmax at 85% 90%, rgba(244, 114, 182, .12), transparent 60%),
+    radial-gradient(45vmax 45vmax at 10% 10%, rgba(99, 102, 241, .14), transparent 60%),
+    var(--ink);
+}
+
+#stage {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Заголовок появляется, пока сердце бьётся */
+.intro {
+  position: fixed;
+  left: 0; right: 0;
+  top: max(6vh, env(safe-area-inset-top, 0px));
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 1.8s ease, transform 1.8s ease;
+}
+.intro.show { opacity: 1; transform: none; }
+.intro.hide { opacity: 0; transition-duration: 1.2s; }
+
+.intro h1 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(2.6rem, 8vw, 5.5rem);
+  letter-spacing: .02em;
+  text-shadow: 0 0 30px rgba(96, 165, 250, .6);
+}
+.intro p {
+  margin-top: .4rem;
+  font-weight: 300;
+  font-size: clamp(.9rem, 2.4vw, 1.1rem);
+  letter-spacing: .08em;
+  color: rgba(232, 238, 255, .7);
+}
+
+/* Подпись после превращения */
+.outro {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: max(4vh, env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1.5rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 2s ease, transform 2s ease;
+  pointer-events: none;
+}
+.outro.show { opacity: 1; transform: none; pointer-events: auto; }
+
+.caption {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.3rem, 4.2vw, 2rem);
+  text-shadow: 0 2px 20px rgba(5, 7, 18, .9), 0 0 24px rgba(96, 165, 250, .5);
+}
+
+.replay {
+  font: 400 .85rem var(--sans);
+  letter-spacing: .06em;
+  color: var(--text);
+  background: rgba(10, 15, 44, .55);
+  border: 1px solid rgba(147, 197, 253, .45);
+  border-radius: 999px;
+  padding: .7rem 1.6rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background .3s, border-color .3s, box-shadow .3s;
+}
+.replay:hover {
+  background: rgba(37, 99, 235, .35);
+  border-color: var(--blue);
+  box-shadow: 0 0 24px rgba(96, 165, 250, .45);
+}
+.replay:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro, .outro { transition-duration: .01s; }
+}

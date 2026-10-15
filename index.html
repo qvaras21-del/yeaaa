@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Для тебя</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300;1,500&family=Manrope:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <canvas id="stage"></canvas>
+
+  <header class="intro" id="intro">
+    <h1>Для тебя</h1>
+    <p>Сердце, которое стало тобой</p>
+  </header>
+
+  <footer class="outro" id="outro">
+    <p class="caption">Ты — самое красивое, что случилось со мной</p>
+    <button class="replay" id="replay" type="button">Показать ещё раз</button>
+  </footer>
+
+  <!-- Фото в виде base64 (работает при открытии файла двойным кликом) -->
+  <script src="photo.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
